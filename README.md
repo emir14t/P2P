@@ -71,7 +71,7 @@ To send a message to all the other peers you are connected to, the following can
 void * sendPeersMessage(void * args);
 ```
 
-The reason this method returns a void pointer and also takes in parameter a void pointer is to be able to used asynchronously with threads, in the event that sending your message becomes blocking code. the parameter args is dynamically casted to be of type ```messageArgs```.
+The reason this method returns a void pointer and also takes in parameter a void pointer is to be able to be used asynchronously with threads, in the event that sending your message becomes blocking code. the parameter args is dynamically casted to be of type ```messageArgs```.
 
 The ```messageArgs``` structure can be created with its constructor. Also, to reuse the same variable for better memory management, the function ```updateMessage``` can be used.
 They are respectively defined as follows:
