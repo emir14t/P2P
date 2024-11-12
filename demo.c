@@ -68,11 +68,11 @@ int main (int argc, char * argv[]) {
     // remove peer from communication heap
     removePeerFromCommunicationHeap(peer, 5);
 
-    printf("Enter a message (STFU stops the server) :\n");
+    printf("Enter a message (\"EXIT\" stops the server) :\n");
     
-    while (strcmp(message, "STFU\n") != 0) {
+    while (strcmp(message, "EXIT\n") != 0) {
         
-        // loop does not necessarily exit when "STFU" is sent due to network latency
+        // loop does not necessarily exit when "EXIT" is sent due to network latency
         
         char request[BUFFER_SIZE];
         memset(request, 0, BUFFER_SIZE);
@@ -86,7 +86,7 @@ int main (int argc, char * argv[]) {
         sendPeersMessage((void *) &msg);
     }
     
-    // MARK: at the end of some shit ...    (required for no memory leaks)
+    // MARK: at the end of the exchange ...    (required for no memory leaks)
 
     terminatePeerConnection(peer);
     pthread_join(peerServerThread, NULL);
